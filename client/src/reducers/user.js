@@ -3,6 +3,7 @@ import axios from 'axios';
 import { setFlash } from './flash';
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
+const USERS = 'USERS'
 
 export const login = (user) => {
   return { type: LOGIN, user };
@@ -10,6 +11,16 @@ export const login = (user) => {
 
 const logout = () => {
   return { type: LOGOUT };
+}
+
+export const getUsers = (cb) => {
+  return (dispatch) => {
+    axios.get('/api/users')
+      .then( res => { 
+        dispatch({ type: USERS, users: res.data }) 
+        cb() 
+      })
+  }
 }
 
 export const registerUser = (user, history) => {
@@ -73,6 +84,8 @@ export default (state = {}, action) => {
   switch (action.type) {
     case LOGIN:
     return action.user;
+    case USERS:
+    return action.users;
     case LOGOUT:
     return {};
     default:

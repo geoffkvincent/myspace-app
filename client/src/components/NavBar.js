@@ -18,6 +18,9 @@ class NavBar extends Component {
           <Link to='/posts'>
             <Menu.Item name='my posts' /> 
           </Link>
+          <Link to='/users'>
+            <Menu.Item name='find freinds' /> 
+          </Link>
         </Menu.Menu>
       );
     }

@@ -7,7 +7,7 @@ import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
 import Posts from './Posts';
-
+import Users from '/Users';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
@@ -22,7 +22,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <ProtectedRoute exact path='/posts' component={Posts} />
-            
+            <ProtectedRoute exact path='/users' component={Users} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />
